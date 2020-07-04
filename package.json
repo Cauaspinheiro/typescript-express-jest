@@ -42,5 +42,16 @@
       "pre-commit": "cross-env NODE_ENV=test jest -o --runInBand",
       "pre-push": "cross-env NODE_ENV=test jest --runInBand"
     }
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/"
+    },
+    "testRegex": "/tests/.*\\.(test|spec).(ts|tsx|js)$"
   }
 }

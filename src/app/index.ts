@@ -22,21 +22,21 @@ export default function app(forceEnv?: Env) : IApp {
     },
     test() {
       return createApp({
-        env: 'dev',
+        env: 'test',
         routes,
       })
     },
     prod() {
       return createApp({
-        env: 'dev',
+        env: 'prod',
         routes,
       })
     },
   }
 
-  if (!forceEnv && !process.env.NODE_ENV) return acceptedEnvs.prod()
+  const envApp = acceptedEnvs[forceEnv || process.env.NODE_ENV as Env]
 
-  const envApp = acceptedEnvs[forceEnv || process.env.NODE_ENV as Env || 'prod']
+  if (envApp) return envApp()
 
-  return envApp()
+  return acceptedEnvs.prod()
 }

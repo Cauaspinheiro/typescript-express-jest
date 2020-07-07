@@ -1,5 +1,5 @@
-import { Env } from '../types'
 import express, { Router, Express, Application } from 'express'
+import { Env } from '../types'
 
 /**
  * Express App dependencies
@@ -25,8 +25,8 @@ export interface IApp {
  * You should use it to speed up the process of creating an env-based app (done in the index file)
  */
 
-export default function createApp ({
-  env, routes, dependencies
+export default function createApp({
+  env, routes, dependencies,
 }: IAppDependencies): IApp {
   const app = express()
 
@@ -41,6 +41,6 @@ export default function createApp ({
   }
 
   return {
-    server: app, env
+    server: app, env,
   }
 }

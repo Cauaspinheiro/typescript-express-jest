@@ -1,6 +1,6 @@
+import { Router } from 'express'
 import { Env } from '../types'
 import createApp, { IApp } from './createApp'
-import { Router } from 'express'
 
 /**
  * Use the default dependencies to create an App and return it
@@ -10,33 +10,33 @@ import { Router } from 'express'
  * I prefer it as a top level function, but it's your choice
  */
 
-export default function app (forceEnv?: Env) : IApp {
+export default function app(forceEnv?: Env) : IApp {
   const routes = Router()
 
   const acceptedEnvs = {
-    dev () {
+    dev() {
       return createApp({
         env: 'dev',
-        routes
+        routes,
       })
     },
-    test () {
+    test() {
       return createApp({
         env: 'dev',
-        routes
+        routes,
       })
     },
-    prod () {
+    prod() {
       return createApp({
         env: 'dev',
-        routes
+        routes,
       })
-    }
+    },
   }
 
   if (!forceEnv && !process.env.NODE_ENV) return acceptedEnvs.prod()
 
-  const app = acceptedEnvs[forceEnv || process.env.NODE_ENV as Env || 'prod']
+  const envApp = acceptedEnvs[forceEnv || process.env.NODE_ENV as Env || 'prod']
 
-  return app()
+  return envApp()
 }

@@ -1,47 +1,41 @@
 {
   "env": {
     "es2020": true,
-    "node": true,
     "jest": true
   },
   "extends": [
-    "standard",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "prettier/@typescript-eslint"
+    "airbnb-base",
+    "plugin:jest/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
     "ecmaVersion": 11,
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+    "sourceType": "module"
   },
-  "plugins": ["prettier", "@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "jest"],
   "rules": {
-    "camelcase": "off",
+    "camelcase": "warn",
     "no-unused-vars": "off",
-    "no-console": "off",
-    "import/prefer-default-export": "off",
+    "semi": ["warn", "never"],
+    "import/prefer-default-export": "warn",
     "import/extensions": [
-      "error",
+      1,
       "ignorePackages",
       {
+        "js": "never",
+        "jsx": "never",
         "ts": "never",
         "tsx": "never"
       }
-    ],
-    "@typescript-eslint/no-floating-promises": "off",
-    "@typescript-eslint/no-unsafe-assignment": "off"
+    ]
   },
   "settings": {
+    "import/extensions": [".ts", ".tsx"],
     "import/resolver": {
-      "typescript": {}
-    },
-    "react": {
-      "version": "detect"
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   }
 }

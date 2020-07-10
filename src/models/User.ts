@@ -35,6 +35,10 @@ export default class User {
     return isEqual
   }
 
+  getPasswordHash() : string | undefined {
+    return this.password_hash
+  }
+
   createId() : string {
     const id = uuid()
 

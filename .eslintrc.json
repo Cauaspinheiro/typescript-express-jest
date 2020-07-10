@@ -15,7 +15,7 @@
   },
   "plugins": ["@typescript-eslint", "jest"],
   "rules": {
-    "camelcase": "warn",
+    "camelcase": "off",
     "no-unused-vars": "off",
     "semi": ["warn", "never"],
     "import/prefer-default-export": "warn",

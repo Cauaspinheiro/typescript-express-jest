@@ -21,16 +21,11 @@ export async function getAllUsers() : Promise<User[]> {
   ]
 }
 
-export async function getUser(id: string) : Promise<User | null> {
+export async function getUser(id: string) : Promise<User | undefined> {
   await timeout(500)
 
   return new User({ id, password: 'myPassword', name: 'user 1' })
 }
-
-/**
- * Insert user in db
- * @returns true if the operation was successful
- */
 
 export async function insertUser(user: User) : Promise<void> {
   await timeout(500)

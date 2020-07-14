@@ -25,20 +25,18 @@ describe('UserService functions when used', () => {
 
     user.createPasswordHash()
 
-    const inserted = await insertUser(user)
-
-    expect(typeof inserted).toBe('undefined')
+    expect(async () => { await insertUser(user) }).not.toThrow()
   })
 
   test('[updateUser]: should update an user in db', async () => {
-    const updated = await updateUser({ id: '1', data: { name: 'valid name' } })
-
-    expect(typeof updated).toBe('undefined')
+    expect(async () => {
+      await updateUser({ id: '1', data: { name: 'valid name' } })
+    }).not.toThrow()
   })
 
   test('[deleteUser]: should delete an user in db', async () => {
-    const deleted = await deleteUser('1')
-
-    expect(typeof deleted).toBe('undefined')
+    expect(async () => {
+      await deleteUser('1')
+    }).not.toThrow()
   })
 })

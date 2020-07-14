@@ -33,7 +33,12 @@ export interface ICrud <Type> {
   delete?: Delete
 }
 
-export default class BaseController <Type extends unknown> {
+/**
+ * Class to create new controllers easily.
+ * You can also type the controller so that it expects default values for each method.
+ */
+
+export default class Controller <Type extends unknown> {
   public index : Index <Type>
 
   public show : Show <Type>

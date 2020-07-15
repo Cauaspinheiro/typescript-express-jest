@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import { devRoutes, prodRoutes, testRoutes } from '../routes'
 import { Env } from '../types'
 import createApp, { IApp } from './createApp'
 
@@ -11,25 +11,23 @@ import createApp, { IApp } from './createApp'
  */
 
 export default function app(forceEnv?: Env) : IApp {
-  const routes = Router()
-
   const acceptedEnvs = {
     dev() {
       return createApp({
         env: 'dev',
-        routes,
+        routes: devRoutes,
       })
     },
     test() {
       return createApp({
         env: 'test',
-        routes,
+        routes: testRoutes,
       })
     },
     prod() {
       return createApp({
         env: 'prod',
-        routes,
+        routes: prodRoutes,
       })
     },
   }

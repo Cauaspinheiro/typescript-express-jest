@@ -1,9 +1,9 @@
 import {
   getAllUsers, getUser, insertUser, updateUser, deleteUser,
-} from '../../src/services/UserService'
+} from '../../../src/services/UserService'
 // OR import * as UserService from '../../src/services/UserService'
 
-import User from '../../src/models/User'
+import User from '../../../src/models/User'
 
 describe('UserService functions when used', () => {
   test('[getAllUsers]: should get all users from db', async () => {

@@ -38,7 +38,7 @@ export interface ICrud <Type> {
  * You can also type the controller so that it expects default values for each method.
  */
 
-export default class Controller <Type extends unknown> {
+export default class Controller <Type = any> {
   public index : Index <Type>
 
   public show : Show <Type>

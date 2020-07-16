@@ -30,4 +30,12 @@ describe('[model]: User when created', () => {
 
     expect(await user.comparePassword('notValid')).toBe(false)
   })
+
+  test('should return password_hash in method getPasswordHash', () => {
+    const user = new User({ name: 'test user', password: '123' })
+
+    const password_hash = user.getPasswordHash()
+
+    expect(typeof password_hash).toBe('string')
+  })
 })

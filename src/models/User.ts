@@ -6,18 +6,24 @@ export default class User {
 
   public name : string
 
-  public password: string
-
   private password_hash: string | undefined // Can be public too
 
-  constructor({ password, name, id }: {id?: string, name: string, password: string}) {
+  constructor({
+    password, name, id, password_hash,
+  }: {id?: string, name: string, password?: string, password_hash?: string}) {
     this.id = id || this.createId()
-    this.password = password
+
     this.name = name
+
+    if (password) {
+      this.password_hash = bcrypt.hashSync(password, 12)
+    } else {
+      this.password_hash = password_hash
+    }
   }
 
-  async createPasswordHash(password?: string) : Promise<void> {
-    const password_hash = await bcrypt.hash(password || this.password, 12)
+  async createPasswordHash(password: string) : Promise<void> {
+    const password_hash = await bcrypt.hash(password, 12)
 
     this.password_hash = password_hash
   }

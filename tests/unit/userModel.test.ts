@@ -18,15 +18,13 @@ describe('[model]: User when created', () => {
   })
 
   test('should create a password hash in method createPasswordHash', () => {
-    const user = new User({ name: 'test user', password: '123' })
+    const user = new User({ name: 'test user' })
 
-    expect(() => user.createPasswordHash()).not.toThrow()
+    expect(() => user.createPasswordHash('123')).not.toThrow()
   })
 
   test('should validate a password based on password hash', async () => {
     const user = new User({ name: 'test user', password: '123' })
-
-    await user.createPasswordHash()
 
     expect(await user.comparePassword('123')).toBe(true)
 

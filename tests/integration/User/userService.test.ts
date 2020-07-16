@@ -23,8 +23,6 @@ describe('UserService functions when used', () => {
   test('[insertUser]: should insert an user in db by param [user: User]', async () => {
     const user = new User({ password: '123', name: 'inserted user' })
 
-    user.createPasswordHash()
-
     expect(async () => { await insertUser(user) }).not.toThrow()
   })
 

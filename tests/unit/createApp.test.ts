@@ -1,15 +1,15 @@
 import express, { Router } from 'express'
-import createApp from '../../src/app/createApp'
+import App from '../../src/app/App'
 
 describe('App when created', () => {
   test('should return the env used', () => {
-    const app = createApp({ env: 'test', routes: Router() })
+    const app = new App({ env: 'test', routes: Router() })
 
     expect(app).toHaveProperty('env')
   })
 
   test('should return the express server in [server]', () => {
-    const app = createApp({ env: 'test', routes: Router() })
+    const app = new App({ env: 'test', routes: Router() })
 
     expect(app).toHaveProperty('server')
 
@@ -17,7 +17,7 @@ describe('App when created', () => {
   })
 
   test('should accept dependency injection in param [dependencies]', () => {
-    const app = createApp({
+    const app = new App({
       env: 'test',
       routes: Router(),
       dependencies: [

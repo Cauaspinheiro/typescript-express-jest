@@ -1,6 +1,6 @@
 import { devRoutes, prodRoutes, testRoutes } from '../routes'
 import { Env } from '../types'
-import createApp, { IApp } from './createApp'
+import App from './App'
 
 /**
  * Use the default dependencies to create an App and return it
@@ -10,22 +10,22 @@ import createApp, { IApp } from './createApp'
  * I prefer it as a top level function, but it's your choice
  */
 
-export default function app(forceEnv?: Env) : IApp {
+export default function app(forceEnv?: Env) : App {
   const acceptedEnvs = {
     dev() {
-      return createApp({
+      return new App({
         env: 'dev',
         routes: devRoutes,
       })
     },
     test() {
-      return createApp({
+      return new App({
         env: 'test',
         routes: testRoutes,
       })
     },
     prod() {
-      return createApp({
+      return new App({
         env: 'prod',
         routes: prodRoutes,
       })

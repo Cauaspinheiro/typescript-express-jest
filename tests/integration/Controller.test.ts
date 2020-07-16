@@ -1,7 +1,7 @@
 import supertest from 'supertest'
 import Controller from '../../src/controllers/Controller'
 import Router from '../../src/routes/Router'
-import createApp from '../../src/app/createApp'
+import App from '../../src/app/App'
 
 describe('Controller when a CRUD function was not provided', () => {
   const controller = new Controller({})
@@ -15,7 +15,7 @@ describe('Controller when a CRUD function was not provided', () => {
     delete: ['delete'],
   })
 
-  const { server } = createApp({ routes, env: 'test' })
+  const { server } = new App({ routes, env: 'test' })
 
   test('[index]: should return a 404 status code', async () => {
     const res = await supertest(server).get('/index')

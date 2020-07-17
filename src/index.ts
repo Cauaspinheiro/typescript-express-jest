@@ -1,12 +1,13 @@
 /**
- * Here we just use the env-based app to listen to port 3001
- *
- * TODO: In the future, we will hear the port based on the .env file or one that was
- * provided by other processes
- */
+ * Here we just use the env-based app to listen to port in the .env file
+*/
+
+import { config } from 'dotenv'
 
 import app from './app'
 
+config()
+
 const { server } = app()
 
-server.listen(3001)
+server.listen(process.env.NODE_PORT || 3001)

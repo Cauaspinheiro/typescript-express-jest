@@ -9,7 +9,7 @@ Um boilerplate para a criação de APIs no Node incluindo TypesScript, Express, 
 - Scripts para debug de testes e cobertura de código
 - Entidades tipadas
 - Fácil manutenção
-- Entidades em POO
+- POO
 - Configuração de arquivo .env
 - Facilidade na criação de testes
 - Supertest para testar as rotas da API
@@ -54,7 +54,7 @@ Certifique de ter o node e um gerenciador de pacotes instalados
 
 **Node**: <https://nodejs.org/en/>
 
-Caso queria usar Yarn ao invés de NPM : <https://yarnpkg.com/>
+Caso queria usar Yarn ao invés de NPM: <https://yarnpkg.com/>
 
 Após isso, instale as dependências do projeto localmente usando `yarn install` ou `npm install`
 
@@ -63,6 +63,15 @@ Após isso, instale as dependências do projeto localmente usando `yarn install`
 Usando o arquivo .env.example, crie um arquivo .env e coloque suas variáveis de ambiente.
 
 #### Pronto! Agora você já pode usar o projeto em sua máquina local
+
+## Scripts
+
+- Commitar de forma mais rápida usando CLI: `ct`
+- Iniciar API em modo de produção usando a build do typescript: `start`
+- Iniciar a API em modo de desenvolvimento com hot-reload: `dev`
+- Rodar os testes automatizados: `test`
+- Rodar os testes de cobertura de código do jest: `test:coverage`
+- Rodar os testes em modo debug: `test:debug`
 
 ## Coisas para adicionar
 
@@ -83,12 +92,3 @@ Adicione todas as configurações de funcionalidades de código (ex: Multer, par
 Esse projeto é licenciado sobre os termos de uso da licença MIT
 
 > Você pode ler toda a licença do projeto [aqui](https://github.com/Cauaspinheiro/typescript-express-jest/blob/master/LICENSE)
-
-## Scripts
-
-- Commitar de forma mais rápida usando CLI: `ct`
-- Iniciar API em modo de produção usando a build do typescript: `start`
-- Iniciar a API em modo de desenvolvimento com hot-reload: `dev`
-- Rodar os testes automátizados: `test`
-- Rodar os testes de cobertura de código do jest: `test:coverage`
-- Rodar os testes em modo debug: `test:debug`
